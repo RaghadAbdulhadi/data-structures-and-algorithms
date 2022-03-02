@@ -4,7 +4,7 @@ A function that takes an array and a value to be added, and returns an array wit
 
 ## Whiteborad Process
 
-![Whiteboard Workflow](./images/whiteboard.PNG)
+![Whiteboard Workflow](./images/array_insert_shift.PNG)
 
 ## Approach & Efficiency
 

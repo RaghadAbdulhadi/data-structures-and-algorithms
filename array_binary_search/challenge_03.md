@@ -1,3 +1,6 @@
+## Array Binary Search 
+A function that takes a sorted list and a search key as an input, and return the index of the element that has a value equal to the search key value.
+
 ## Whiteborad Process
 
 ![Whiteboard Workflow](./images/array_binary_search.PNG)

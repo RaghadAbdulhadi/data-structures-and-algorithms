@@ -60,7 +60,7 @@ class linked_list:
             self.head = self.head.next
             return
         
-        # What will be changes is the pointer or the next of the previous node
+        # What will be changed is the pointer or the next of the previous node
         count = 0
         current = self.head
         while current:
@@ -78,7 +78,7 @@ class linked_list:
             self.insert(value)
             return
 
-        # What will be changes is the pointer or the next of the previous node
+        # What will be changed is the pointer or the next of the previous node
         count = 0
         current = self.head
         while current:

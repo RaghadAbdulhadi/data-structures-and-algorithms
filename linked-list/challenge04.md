@@ -20,8 +20,10 @@ We depend on the Next value in each node to guide us where the next reference is
 ## Challenge
 
 Create a linked list by creating a Node class and a linked list class.
-Node Class: A class that represents individual elements in a linked list
-Linked list class: A class that instantiate, insert at the begining, insert at the end, removes nodes from a linked list and get the length of the list and checks if it contains a specific value.
+
+**Node Class:** A class that represents individual elements in a linked list
+
+**Linked list class:** A class that instantiate, insert at the begining, insert at the end, removes nodes from a linked list and get the length of the list and checks if it contains a specific value.
 
 ## Approach & Efficiency
 
@@ -54,5 +56,4 @@ A function that takes no arguments and returns a formatted string.
 
     Arguments: none
     Returns: String representation of the values in the linked list.
-
-        "{ a } -> { b } -> { c } -> None"
+                "{ a } -> { b } -> { c } -> None"

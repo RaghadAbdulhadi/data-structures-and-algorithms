@@ -1,6 +1,7 @@
 # Challenge Summary
 Create a Linked list with append, insert_after, insert_before methods.
 All methods will be implemented inside the Linked list Class, and intializing the nodes will be in a seperated Node class.
+
 **Four Methods will be added:**
 
 **Append Method:**
@@ -69,6 +70,7 @@ Output: L.L with the node removed
 6. Loop over the linked list until we reach the node that has the next value pointing to the value passed in the function
 7. Instantiate a node from the node class with a value of the new_value passed to the function, and the next pointing to the current node that we reached next
 8. Assign the current node to be pointing to the new added node
+
 **Big O:**
 - Insert/Delete Element at the end = O(n)
 - Insert Element at the middle = O(n)

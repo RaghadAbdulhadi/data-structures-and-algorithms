@@ -8,4 +8,5 @@ Code Challenges
 | array-binary-search | [Challenge03](./array_binary_search/challenge_03.md) |
 | whiteboard-interview | [Challenge04](./WhiteBoard-Interviews/challenge04.md) |
 | linked-list | [Challenge05](./linked-list/challenge05.md) |
+| linked-list-insertions | [Challenge06](./linked-list/challenge06.md) |
 

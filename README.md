@@ -10,5 +10,7 @@ Code Challenges
 | linked-list | [Challenge05](./linked-list/challenge05.md) |
 | linked-list-insertions | [Challenge06](./linked-list/challenge06.md) |
 | linked-list-kth | [Challenge07](./linked-list/challenge07.md) |
+| linked-list-zip | [Challenge08](./linked-list/challenge08.md) |
+
 
 

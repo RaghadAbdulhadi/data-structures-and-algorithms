@@ -169,6 +169,32 @@ class linked_list:
                 current = current.next
             return False
 
+    def remove_all_nodes(self):
+        while self.head != None:
+            current = self.head
+            self.head = self.head.next
+            current = None
+
+
+
+    def zip_lists(self, linked_list_one, linked_list_two):
+        """
+        A function that zips two linked lists together into one so that the nodes alternate between the two lists, with space equal to O(1)
+            Arguments: two linked lists
+            Return: a reference to the the zipped list.
+        """
+        current_one = linked_list_one.head
+        current_two = linked_list_two.head
+        while current_one is not None and current_two is not None:
+            linked_list_one.insert_after(current_one.value,current_two.value)
+            current_one = current_one.next.next
+            current_two = current_two.next
+        if current_one == None and current_two != None:
+            linked_list_one.append(current_two.value)
+        linked_list_two.remove_all_nodes()
+        return linked_list_one
+    
+    
     def to_string(self):
         """
         A function that takes no arguments and returns a formatted string.
@@ -190,27 +216,50 @@ class linked_list:
 
 if __name__ == '__main__':
 
-    ll = linked_list()
-    ll2 = linked_list()
-    ll.insert_at_beginning("Raghad")
-    ll.insert_at_beginning("Gheed")
-    #ll.append("Jood")
-    #ll.insert_after("Raghad", "Omar")
-    ll.insert_before("Raghad", "mugh")
+
+    linked_list_one = linked_list()
+    linked_list_two = linked_list()
+    linked_list_one.insert_values([1,3,2])
+    linked_list_two.insert_values([5,9,4])
+    linked_list_two.zip_lists(linked_list_one, linked_list_two)
+    print(linked_list_one.to_string())
+
+    linked_list_one = linked_list()
+    linked_list_two = linked_list()
+    linked_list_one.insert_values([1,3])
+    linked_list_two.insert_values([5,9,4])
+    linked_list_one.zip_lists(linked_list_one, linked_list_two)
+    print(linked_list_one.to_string())
+
+    linked_list_one = linked_list()
+    linked_list_two = linked_list()
+    linked_list_one.insert_values([1,3,2])
+    linked_list_two.insert_values([5,9])
+    linked_list_two.zip_lists(linked_list_one, linked_list_two)
+    print(linked_list_one.to_string())
+    print(linked_list_two.to_string())
+
+
+
+    # ll = linked_list()
+    # ll2 = linked_list()
+    # ll.insert_at_beginning("Raghad")
+    # ll.insert_at_beginning("Gheed")
+    # ll.append("Jood")
+    # ll.insert_after("Raghad", "Omar")
+    # ll.insert_before("Raghad", "mugh")
     # ll.insert_before("Gheed", "moayad")
-    #ll.insert_values(["Omar", "Ayman", "Rajaa"])
-    #ll.remove_at(1)
+    # ll.insert_values(["Omar", "Ayman", "Rajaa"])
+    # ll.remove_at(1)
     # ll.remove_at(20)
     # ll.insert_at()
     # ll.insert_at(2,"Jood")
     # ll.insert_at(0,"mugh")
     # ll2.insert_values(["sewar", "rand", "raghad"])
-    print(ll.kth_from_end(0))
-    print(ll.kth_from_end(2))
-    #print(ll.kth_from_end(4))
-
-
+    # print(ll.kth_from_end(0))
+    # print(ll.kth_from_end(2))
+    # print(ll.kth_from_end(4))
     # print(ll.includes("Rand"))
-    print(ll.to_string())
-    print(ll.get_length())
+    # print(ll.to_string())
+    # print(ll.get_length())
     # print(ll2.to_string())

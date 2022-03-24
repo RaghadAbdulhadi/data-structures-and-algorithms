@@ -10,7 +10,7 @@ Insert/Delete Element at the end = O(n)
 Insert Element at the middle = O(n)
 
 Linked list Traversal = O(n)
-Accessing Element by value = O(n )
+Accessing Element by value = O(n)
 
 Array vs Link list:
 ![Array vs Link list](../images/arrayVslinked.PNG)

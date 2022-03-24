@@ -80,6 +80,25 @@ class linked_list:
                     break
                 current = current.next
 
+    def kth_from_end(self, k):
+        """
+        A function that returns the value of the node at the k position from the tail of the linked list.
+        Arguments: Number (k)
+        Returns: node’s value that is k places from the tail of the linked list
+        """
+        if k < 0 or k >= self.get_length():
+            # raise Exception("Invalid Index")
+            return "Invalid Index"
+        else:
+            count = self.get_length() -1
+            current = self.head
+            while current:
+                if k == count:
+                    return current.value
+                current = current.next
+                count = count - 1
+
+
     def insert_values(self, values_list):
         for value in values_list:
             self.append(value)
@@ -175,18 +194,23 @@ if __name__ == '__main__':
     ll2 = linked_list()
     ll.insert_at_beginning("Raghad")
     ll.insert_at_beginning("Gheed")
-    ll.append("Jood")
-    ll.insert_after("Raghad", "Omar")
+    #ll.append("Jood")
+    #ll.insert_after("Raghad", "Omar")
     ll.insert_before("Raghad", "mugh")
     # ll.insert_before("Gheed", "moayad")
-    ll.insert_values(["Omar", "Ayman", "Rajaa"])
-    ll.remove_at(1)
+    #ll.insert_values(["Omar", "Ayman", "Rajaa"])
+    #ll.remove_at(1)
     # ll.remove_at(20)
     # ll.insert_at()
     # ll.insert_at(2,"Jood")
     # ll.insert_at(0,"mugh")
     # ll2.insert_values(["sewar", "rand", "raghad"])
-    print(ll.includes("Rand"))
+    print(ll.kth_from_end(0))
+    print(ll.kth_from_end(2))
+    #print(ll.kth_from_end(4))
+
+
+    # print(ll.includes("Rand"))
     print(ll.to_string())
     print(ll.get_length())
-    print(ll2.to_string())
+    # print(ll2.to_string())

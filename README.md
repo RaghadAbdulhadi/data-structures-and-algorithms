@@ -9,4 +9,6 @@ Code Challenges
 | whiteboard-interview | [Challenge04](./WhiteBoard-Interviews/challenge04.md) |
 | linked-list | [Challenge05](./linked-list/challenge05.md) |
 | linked-list-insertions | [Challenge06](./linked-list/challenge06.md) |
+| linked-list-kth | [Challenge07](./linked-list/challenge07.md) |
+
 

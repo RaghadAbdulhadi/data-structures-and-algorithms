@@ -1,4 +1,5 @@
 import pytest
+# import unittest
 from linked_list.linked_list import linked_list, Node
 
 
@@ -85,16 +86,43 @@ def test_remove_node(ll):
     expected = "{ Jood } -> { Raghad } -> { Omar } -> None"
     assert actual == expected
 
+def test_k_larger_than_LL_length(ll):
+    ll.insert_at_beginning("Jood")
+    actual = ll.kth_from_end(3)
+    expected = "Invalid Index"
+    assert actual == expected
+
+def test_k_equals_to_LL_length(ll):
+    ll.insert_at_beginning("Jood")
+    actual = ll.kth_from_end(2)
+    expected = "Invalid Index"
+    assert actual == expected
+
+def test_k_negative_number(ll):
+    actual = ll.kth_from_end(-1)
+    expected = "Invalid Index"
+    assert actual == expected
 
 
+def test_k_when_LL_length_1(ll):
+    actual = ll.kth_from_end(0)
+    expected = "Gheed"
+    assert actual == expected
+
+def test_k_in_middle_of_LL(ll):
+    ll.insert_at_beginning("Jood")
+    ll.insert_at_beginning("Raghad")
+    ll.insert_at_beginning("Omar")
+    ll.insert_at_beginning("Ayman")
+    actual = ll.kth_from_end(2)
+    expected = "Raghad"
+    assert actual == expected
 
 
 @pytest.fixture
 def ll():
     ll = linked_list()
-
     ll.insert_at_beginning("Gheed")
-
     return ll
 
 

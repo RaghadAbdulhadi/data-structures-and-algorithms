@@ -1,5 +1,4 @@
 import pytest
-# import unittest
 from linked_list.linked_list import linked_list, Node
 
 
@@ -103,7 +102,6 @@ def test_k_negative_number(ll):
     expected = "Invalid Index"
     assert actual == expected
 
-
 def test_k_when_LL_length_1(ll):
     actual = ll.kth_from_end(0)
     expected = "Gheed"
@@ -118,12 +116,47 @@ def test_k_in_middle_of_LL(ll):
     expected = "Raghad"
     assert actual == expected
 
+def test_zip_list_both_equal():
+    linked_list_one = linked_list()
+    linked_list_two = linked_list()
+    linked_list_one.insert_values([1,3,2])
+    linked_list_two.insert_values([5,9,4])
+    linked_list_two.zip_lists(linked_list_one, linked_list_two)
+    actual = linked_list_one.to_string()
+    expected = "{ 1 } -> { 5 } -> { 3 } -> { 9 } -> { 2 } -> { 4 } -> None"
+    assert actual == expected
+
+
+
+def test_zip_list_one_less_than_two():
+    linked_list_one = linked_list()
+    linked_list_two = linked_list()
+    linked_list_one.insert_values([1,3])
+    linked_list_two.insert_values([5,9,4])
+    linked_list_two.zip_lists(linked_list_one, linked_list_two)
+    actual = linked_list_one.to_string()
+    expected = "{ 1 } -> { 5 } -> { 3 } -> { 9 } -> { 4 } -> None"
+    assert actual == expected
+
+def test_zip_list_two_less_than_one():
+    linked_list_one = linked_list()
+    linked_list_two = linked_list()
+    linked_list_one.insert_values([1,3,2])
+    linked_list_two.insert_values([5,9])
+    linked_list_two.zip_lists(linked_list_one, linked_list_two)
+    actual = linked_list_one.to_string()
+    expected = "{ 1 } -> { 5 } -> { 3 } -> { 9 } -> { 2 } -> None"
+    assert actual == expected
+
+
 
 @pytest.fixture
 def ll():
     ll = linked_list()
     ll.insert_at_beginning("Gheed")
     return ll
+
+
 
 
 

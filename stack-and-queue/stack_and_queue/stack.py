@@ -57,6 +57,21 @@ class Stack:
             return True
         return False
 
+    def to_string(self):
+            stack_str = ""
+            if self.top == None:
+                stack_str = "Stack is empty"
+            else:
+                current = self.top
+                while current:
+                    stack_str += "{ " + str(current.value) + " }" + " -> "
+                    current = current.next
+                stack_str += "None"
+            return stack_str
 
-
+if __name__ == "__main__":
+    stack = Stack()
+    stack.push("Raghad")
+    stack.push("Jood")
+    print(stack.to_string())
     

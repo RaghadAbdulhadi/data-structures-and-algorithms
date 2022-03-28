@@ -62,4 +62,25 @@ class Queue:
             return True
         return False
 
+    def to_string(self):
+            queue_str = ""
+            if self.front == None:
+                queue_str = "Stack is empty"
+            else:
+                current = self.front
+                while current:
+                    queue_str += "{ " + str(current.value) + " }" + " -> "
+                    current = current.next
+                queue_str += "None"
+            return queue_str
+            
+
     
+if __name__ == "__main__":
+    queue = Queue()
+    queue.enqueue("Gheed")
+    queue.enqueue("Raghad")
+    queue.enqueue("Jood")
+    queue.enqueue("Omar")
+    queue.dequeue()
+    print(queue.to_string())

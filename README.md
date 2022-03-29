@@ -12,7 +12,11 @@ Code Challenges
 | linked-list-kth | [Challenge07](./linked-list/challenge07.md) |
 | linked-list-zip | [Challenge08](./linked-list/challenge08.md) |
 | reverse&palindrome-linked-list | [Challenge09](./linked-list) |
-| stack-and-queue | [Challenge10](./linked-list) |
+| stack-and-queue | [Challenge10](./stack-and-queue/Challenge10.md) |
+| pseudo-queue | [Challenge11](./stack-and-queue/Challenge11.md) |
+
+
+
 
 
 

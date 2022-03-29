@@ -115,19 +115,13 @@ class linked_list:
         current_before = current_linked_list.head
         linkedlist_reversed = linkedlist.reverse_linked_list(linkedlist)
         current_after = linkedlist_reversed.head
-        while  current_before:
-            while  current_after:
-                print(current_linked_list.to_string())
-                print(linkedlist_reversed.to_string())
-                print(current_after.value)
-                print(current_before.value)
-                if current_before.value == current_after.value:
-                    current_before = current_before.next
-                    current_after = current_after.next
-                    print(current_after)
-                    print(current_before)
+        while  current_before and current_after:
+            if current_before.value != current_after.value:
                 return False
-            return True
+            else:
+                current_before = current_before.next
+                current_after = current_after.next
+        return True
 
 
         """
@@ -138,17 +132,7 @@ class linked_list:
         """
 
 
-        # current_after_list = []
-        # i = 0
-        # while current_after:
-        #     current_after_list.append(current_after.value)
-        #     current_after = current_after.next
-        #     if current_before.value != current_after_list[i]:
-        #         return False
-        #     else:
-        #         current_before = current_before.next
-        #         i += 1
-        #     return True
+
 
         # while current_before and current_after:
         #     if current_before.value != current_after.value:
@@ -181,7 +165,7 @@ class linked_list:
 if __name__ == "__main__":
     linkedlist = linked_list()
     linkedlist.insert_at_beginning("t")
-    linkedlist.insert_at_beginning("a")
+    linkedlist.insert_at_beginning("b")
     linkedlist.insert_at_beginning("c")
     linkedlist.insert_at_beginning("o")
     linkedlist.insert_at_beginning("c")

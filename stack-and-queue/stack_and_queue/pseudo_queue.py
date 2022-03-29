@@ -14,26 +14,26 @@ class PseudoQueue:
         Arguments: value
         Return: Nothing 
         """
-        if self.stack_one.is_empty():
-            return "Stack one is empty"
-        self.stack_one.push(value)
+        self.stack_one.push(value)    
 
     def dequeue(self):
         """
         A function that extracts a value from the PseudoQueue, using a first-in, first-out approach.
         Arguments: value
-        Return: Nothing 
+        Return: The poped element
         """
+        if self.stack_one.top == None:
+            return "Pseudo Queue is empty"
+
         if self.stack_two.top == None:
             while self.stack_one.top != None:
                 self.stack_two.push(self.stack_one.pop())
-            return "Queue is empty"
+        return self.stack_two.pop()
 
-    
     def to_string(self):
         queue_stack_str = ""
-        if self.stack_one.is_empty():
-            queue_stack_str = "Stack is empty"
+        if self.stack_two.top == None:
+            queue_stack_str = "Pseudo Queue is empty"
         else:
             current = self.stack_two.top
             while current:
@@ -48,7 +48,8 @@ if __name__ == "__main__":
     from stack import Stack
     pseudo = PseudoQueue()
     pseudo.enqueue("raghad")
+    pseudo.enqueue("gheed")
+    pseudo.enqueue("ayman")
     pseudo.enqueue("jood")
     pseudo.dequeue()
-
     print(pseudo.to_string())

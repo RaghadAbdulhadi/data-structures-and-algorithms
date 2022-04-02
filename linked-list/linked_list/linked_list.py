@@ -176,8 +176,8 @@ class linked_list:
             current = None
 
 
-
-    def zip_lists(self, linked_list_one, linked_list_two):
+    @staticmethod
+    def zip_lists(linked_list_one, linked_list_two):
         """
         A function that zips two linked lists together into one so that the nodes alternate between the two lists, with space equal to O(1)
             Arguments: two linked lists

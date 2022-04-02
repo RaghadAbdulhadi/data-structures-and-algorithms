@@ -17,7 +17,7 @@ class Queue:
     def enqueue(self,value):
         """
         A function that adds the node from the rear of the queue
-        Arguments: value
+        Arguments: valueb
         Returns: The queue with the new node added
         """
         node = Node(value)

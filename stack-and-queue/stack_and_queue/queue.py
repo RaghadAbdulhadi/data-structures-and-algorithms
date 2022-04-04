@@ -62,6 +62,14 @@ class Queue:
             return True
         return False
 
+    def length(self):
+        count = 0
+        current = self.front
+        while current:
+            count += 1
+            current = current.next
+        return count
+
     def to_string(self):
             queue_str = ""
             if self.front == None:
@@ -83,4 +91,5 @@ if __name__ == "__main__":
     queue.enqueue("Jood")
     queue.enqueue("Omar")
     queue.dequeue()
+    print(queue.length())
     print(queue.to_string())

@@ -40,39 +40,69 @@
 **Stack Approach:**
 
 1. Create a node class to instantiate the nodes in a stack
+
     2. The node class contains value and a pointer to the next node
+
 3. Create a Stack class that instantiate a nodes top value with None
+
     4. Create a method that pushes the nodes into the stack
+
         5. Create a node using the node class
+
         6. Assign the next of the node to be the top pf the stack
+
         7. Reassign the top of the stack to be the newly added node
+
     8. Create a method that pops out nodes from the top of the stack
+
         9. If the top value is None then the stack is empty and return the stack is empty
+
         10. If the top is not None, assign the top node to a new varaible, reassign the top to be the next, then change the next of the assigned variable to be pointing to None, return the popped node value
+
     11. Create a method that returns the top value of the stack
+
         12. If the top value is None, return Stack is empty
+
         13. If not None, return the top value of the stack
+
     14. Create a method that checks is the stack is empty
+
         15. If top is None -> True
+
         16. If top is not None -> False
 
 **Queue Approach:**
 
 1. Create a node class to instantiate the nodes in a queue
+
     2. The node class contains value and a pointer to the next node
+
 3. Create a Queue class that instantiate a nodes front and rear values with None
+
     4. Create a method that enqueues the nodes into the queue from the rear
+
         5. Create a node using the node class
+
         6. If the front value is None, assign the front and the rear to be the new node
+
         7. If the queue is not empty, assign rear to be pointing to the new node and reassign the rear to be the new node
+
     8. Create a method that dequeues out nodes from the front of the queue
+
         9. If the front value is None then the queue is empty and return the queue is empty
+        
         10. If the front is not None, assign the front node to a new varaible, reassign the front to be the next, then change the next of the assigned variable to be pointing to None, return the dequeued nodes value
+
     11. Create a method that returns the front value of the queue
+
         12. If the front value is None, return Queue is empty
+
         13. If not None, return the front value of the queue
+
     14. Create a method that checks is the queue is empty
+
         15. If front is None -> True
+
         16. If front is not None -> False
 
 **Stack**

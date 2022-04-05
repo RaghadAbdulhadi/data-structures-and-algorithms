@@ -3,7 +3,7 @@ Create a function that represents whether or not the brackets in the string are 
     Arguments: string
     Retrun: boolean
 ## Whiteboard Process
-[validateabrackets](./images/bracketvalidatioWB.PNG)
+![validateabrackets](./images/bracketvalidatioWB.PNG)
 
 
 ## Approach & Efficiency
@@ -26,4 +26,4 @@ Space Complexity: O(n) -> Depends on the string argument length
 
 Time Complexity: O(n) -> iterating iver the string argument length
 ## Solution
-[Solution#2](./images/Solution%232.PNG)
+![Solution#2](./images/Solution%232.PNG)

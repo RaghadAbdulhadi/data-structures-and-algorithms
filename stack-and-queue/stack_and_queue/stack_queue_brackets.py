@@ -1,4 +1,4 @@
-# from stack_and_queue.stack import Stack
+from stack_and_queue.stack import Stack
 
 class BracketValidation:
     def __init__(self):

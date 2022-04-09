@@ -14,6 +14,8 @@ Code Challenges
 | reverse&palindrome-linked-list | [Challenge09](./linked-list) |
 | stack-and-queue | [Challenge10](./stack-and-queue/Challenge10.md) |
 | pseudo-queue | [Challenge11](./stack-and-queue/Challenge11.md) |
+| stack-queue-animal-shelter | [Challenge12](./stack-and-queue/Challenge12.md) |
+
 
 
 

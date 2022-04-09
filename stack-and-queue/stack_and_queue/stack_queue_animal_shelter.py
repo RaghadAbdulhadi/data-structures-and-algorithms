@@ -1,4 +1,4 @@
-from stack_and_queue.queue import Queue
+# from stack_and_queue.queue import Queue
 
 class Dog():
     def __init__(self):
@@ -25,7 +25,9 @@ class AnimalShelter:
 
     def enqueue(self,animal):
         """
+        A method that adds animal to the shelter if it is a Dog or Cat Instance
         Arguments: animal (Dog or Cat objects)
+        Returns: Nothing
         """
         if isinstance(animal,Dog) or isinstance(animal,Cat):
             self.animals_shelter.enqueue(animal)
@@ -35,6 +37,7 @@ class AnimalShelter:
 
     def dequeue(self,pref):
         """
+        A method that pops out a dog or a cat based on the prefrence
         Arguments: prefrence ("Dog" or "Cat")
         Returns: "Dog" or "Cat" or "None"
         """

@@ -5,16 +5,16 @@ class TNode:
         self.right = None
     
 class BinaryTree:
-    def __init__(self, root):
+    def __init__(self):
         # A value for the root will be passed to the tree
-        self.root = TNode(root.value)
+        self.root = None
     def traversal_type(self, traversal_type):
         if traversal_type == "preorder":
-            return self.pre_order(tree.root, [])
+            return self.pre_order(self.root, [])
         elif traversal_type == "inorder":
-            return self.in_order(tree.root, [])
+            return self.in_order(self.root, [])
         elif traversal_type == "postorder":
-            return self.post_order(tree.root, [])
+            return self.post_order(self.root, [])
 
     def pre_order(self, node, nodes_list = []):
         """
@@ -59,15 +59,45 @@ class BinarySearchTree(BinaryTree):
             Arguments: value
             Return: nothing
         """
-        pass
+        if self.root == None:
+            self.root = TNode(value)
+        else:
+            self._add(value, self.root)
+    def _add(self, value, current_node):
+        if value < current_node.value:
+            if current_node.left == None:
+                current_node.left = TNode(value)
+            else:
+                self._add(value, current_node.left)
+        elif value > current_node.value:
+            if current_node.right == None:
+                current_node.right = TNode(value)
+            else:
+                self._add(value, current_node.right)
+        else:
+            print("Value is already in the binary search tree")
+
     def contains(self, value):
         """
         A method that checks whether or not the value is in the tree at least once.
             Argument: value
             Return: boolean
         """
-        pass
+        if self.root:
+            is_found = self._contains(value, self.root)
+            if is_found:
+                return True
+            return False
+        else:
+            return None
 
+    def _contains(self, value, current_node):
+        if value > current_node.value and value < current_node.right.value:
+            return self._contains(value, current_node.right)
+        elif value < current_node.value and current_node.left.value:
+            return self._contains(value, current_node.left)
+        elif value == current_node.value:
+            return True
 
 if __name__ == "__main__":
     # Nodes
@@ -80,8 +110,9 @@ if __name__ == "__main__":
     node7 = TNode(7)
     node8 = TNode(8)
 
-    # Tree
-    tree = BinaryTree(node1)
+    # Binary Tree
+    tree = BinaryTree()
+    tree.root = node1
     tree.root.left = node2
     tree.root.right = node3
     tree.root.left.left = node4
@@ -95,7 +126,18 @@ if __name__ == "__main__":
     print(tree.traversal_type("inorder"))
     print(tree.traversal_type("postorder"))
 
+    # Binary Search Tree
 
+    binary_search_tree = BinarySearchTree()
+    binary_search_tree.add(4)
+    binary_search_tree.add(2)
+    binary_search_tree.add(8)
+    binary_search_tree.add(5)
+    binary_search_tree.add(10)
+
+    # print(binary_search_tree.contains(20))
+    # print(binary_search_tree.contains(4))
+    print(binary_search_tree.contains(11))
 
 
 #      1

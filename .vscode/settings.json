@@ -1,0 +1,6 @@
+{
+    "python.analysis.extraPaths": [
+        "./stack-and-queue/stack_and_queue",
+        "./stack-and-queue/stack_and_queue"
+    ]
+}

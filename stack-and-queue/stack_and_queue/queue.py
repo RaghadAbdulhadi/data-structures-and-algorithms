@@ -17,7 +17,7 @@ class Queue:
     def enqueue(self,value):
         """
         A function that adds the node from the rear of the queue
-        Arguments: value
+        Arguments: valueb
         Returns: The queue with the new node added
         """
         node = Node(value)
@@ -62,4 +62,34 @@ class Queue:
             return True
         return False
 
+    def length(self):
+        count = 0
+        current = self.front
+        while current:
+            count += 1
+            current = current.next
+        return count
+
+    def to_string(self):
+            queue_str = ""
+            if self.front == None:
+                queue_str = "Stack is empty"
+            else:
+                current = self.front
+                while current:
+                    queue_str += "{ " + str(current.value) + " }" + " -> "
+                    current = current.next
+                queue_str += "None"
+            return queue_str
+            
+
     
+if __name__ == "__main__":
+    queue = Queue()
+    queue.enqueue("Gheed")
+    queue.enqueue("Raghad")
+    queue.enqueue("Jood")
+    queue.enqueue("Omar")
+    queue.dequeue()
+    print(queue.length())
+    print(queue.to_string())

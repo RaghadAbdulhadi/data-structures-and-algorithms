@@ -13,17 +13,6 @@ Code Challenges
 | linked-list-zip | [Challenge08](./linked-list/challenge08.md) |
 | reverse&palindrome-linked-list | [Challenge09](./linked-list) |
 | stack-and-queue | [Challenge10](./stack-and-queue/Challenge10.md) |
-| pseudo-queue | [Challenge11](./stack-and-queue/Challenge11.md) |
-| stack-queue-animal-shelter | [Challenge12](./stack-and-queue/Challenge12.md) |
-| stack-queue-brackets | [Challenge13](./stack-and-queue/Challenge13.md) |
-| trees | [Challenge15](./trees/Challenge15.md) |
-
-
-
-
-
-
-
 
 
 

@@ -17,6 +17,8 @@ Code Challenges
 | stack-queue-animal-shelter | [Challenge12](./stack-and-queue/Challenge12.md) |
 | stack-queue-brackets | [Challenge13](./stack-and-queue/Challenge13.md) |
 | trees | [Challenge15](./trees/Challenge15.md) |
+| tree-max | [Challenge16](./trees/Challenge16.md) |
+
 
 
 

@@ -53,39 +53,49 @@ class BinaryTree:
         walk(self.root) 
     
             ## Approach 1 ##
+    # def max_element(self):
+    #     """
+    #     A method that finds the maximum element stored in the tree and returns its value
+    #     Arguments: none
+    #     Returns: number
+    #     """
+        # def find_max(node):
+        #     if node == None:
+        #         return float("-inf")
+        #     left_node = find_max(node.left)
+        #     print("leftnode: ", left_node)
+        #     right_node = find_max(node.right)
+        #     print("rightnode: ", right_node)
+        #     return max(max(left_node, right_node), node.value)
+        # return find_max(self.root)    
+
+        #     4
+        #  2     55
+        # 1 30 11  6
+            ## Approach 1 ##
     def max_element(self):
         """
         A method that finds the maximum element stored in the tree and returns its value
         Arguments: none
         Returns: number
         """
-        def find_max(node):
+        max_element = 0
+        def next_node(node):
+            nonlocal max_element
             if node == None:
-                return float("-inf")
-            left_node = find_max(node.left)
-            right_node = find_max(node.right)
-            return max(max(left_node, right_node), node.value)
-        return find_max(self.root)    
-
-            ## Approach 1 ##
-    # def max_element(self):
-        # max_element = 0
-        # def next_node(node):
-        #     nonlocal max_element
-        #     if node == None:
-        #         return "Tree has no nodes"
-        #     else:
-        #         if max_element < int(node.value): 
-        #             max_element = int(node.value)
-        #             print("Max Element:", max_element)
-        #         if node.left:
-        #             print("left side",node.left.value)
-        #             next_node(node.left)
-        #         if node.right:
-        #             print("right side", node.right.value)
-        #             next_node(node.right)
-        # next_node(self.root)
-        # return max_element
+                return "Tree has no nodes"
+            else:
+                if max_element < int(node.value): 
+                    max_element = int(node.value)
+                    print("Max Element:", max_element)
+                if node.left:
+                    print("left side",node.left.value)
+                    next_node(node.left)
+                if node.right:
+                    print("right side", node.right.value)
+                    next_node(node.right)
+        next_node(self.root)
+        return max_element
         
 
 
@@ -141,8 +151,8 @@ if __name__ == "__main__":
   tree.root.right.right = Node(6)
   tree.root.left.right = Node(30)
   tree.root.left.left = Node(1)
-  tree.root.right.left = Node(11)
-  print(tree.max_element())
+  tree.root.right.left = Node(111)
+  print("Final Max Element:", tree.max_element())
 
 #     4
 #  2     55

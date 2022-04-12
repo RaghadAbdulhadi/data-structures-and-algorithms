@@ -1,152 +1,201 @@
-class TNode:
-    def __init__(self, value):
+class Node:
+    def __init__(self, value, left = None,right=None):
         self.value = value
-        self.left = None
-        self.right = None
-    
+        self.left = left
+        self.right = right
+
+
 class BinaryTree:
-    def __init__(self):
-        # A value for the root will be passed to the tree
-        self.root = None
-    def traversal_type(self, traversal_type):
-        if traversal_type == "preorder":
-            return self.pre_order(self.root, [])
-        elif traversal_type == "inorder":
-            return self.in_order(self.root, [])
-        elif traversal_type == "postorder":
-            return self.post_order(self.root, [])
+    def __init__(self, root = None):
+        self.root = root
 
-    def pre_order(self, node, nodes_list = []):
-        """
-        Root -> Left -> Right
-        Arguments: None
-        Return: list of the values, ordered appropriately
-        """
-        if node:
-            nodes_list.append(node.value)
-            nodes_list = self.pre_order(node.left, nodes_list)
-            nodes_list = self.pre_order(node.right, nodes_list)
-        return nodes_list
+    def __str__(self):
+        return self.root.value
 
-    def in_order(self, node, nodes_list = []):
-        """
-        Left -> Root -> Right
-        Arguments: None
-        Return: array of the values, ordered appropriately
-        """
-        if node:
-            nodes_list = self.in_order(node.left, nodes_list)
-            nodes_list.append(node.value)
-            nodes_list = self.in_order(node.right, nodes_list)
-        return nodes_list
+    def in_order_traversal(self): 
+        def walk(node):
+            if node.left:
+                walk(node.left)
+            print(node.value, end=" ")
+            if node.right:
+                walk(node.right)
+        walk(self.root) 
 
-    def post_order(self, node, nodes_list = []):
-        """
-        Left -> Right -> Root
-        Arguments: None
-        Return: array of the values, ordered appropriately
-        """
-        if node:
-            nodes_list = self.in_order(node.left, nodes_list)
-            nodes_list = self.in_order(node.right, nodes_list)
-            nodes_list.append(node.value)
-        return nodes_list
 
-class BinarySearchTree(BinaryTree):
-    def add(self, value):
+    def descending_traversal(self):
+        def walk(node):
+            if node.right:
+                walk(node.right)
+            print(node.value, end=" ") # 1,2,3, 4, 4.5, 5 , 6
+            if node.left:
+                walk(node.left)
+
+        walk(self.root) 
+
+
+    def pre_order_traversal(self): 
+        def walk(node):
+            print(node.value, end=" ")
+            if node.left:
+                walk(node.left)
+            if node.right:
+                walk(node.right)
+        walk(self.root) 
+
+
+    def post_order_traversal(self): 
+        def walk(node):
+            if node.left:
+                walk(node.left)
+            if node.right:
+                walk(node.right)
+            print(node.value, end=" ")
+        walk(self.root) 
+    
+            ## Approach 1 ##
+    def max_element(self):
         """
-        A method that adds a new node with that value in the correct location in the binary search tree.
-            Arguments: value
-            Return: nothing
+        A method that finds the maximum element stored in the tree and returns its value
+        Arguments: none
+        Returns: number
         """
-        if self.root == None:
-            self.root = TNode(value)
+        def find_max(node):
+            if node == None:
+                return float("-inf")
+            left_node = find_max(node.left)
+            right_node = find_max(node.right)
+            return max(max(left_node, right_node), node.value)
+        return find_max(self.root)    
+
+            ## Approach 1 ##
+    # def max_element(self):
+        # max_element = 0
+        # def next_node(node):
+        #     nonlocal max_element
+        #     if node == None:
+        #         return "Tree has no nodes"
+        #     else:
+        #         if max_element < int(node.value): 
+        #             max_element = int(node.value)
+        #             print("Max Element:", max_element)
+        #         if node.left:
+        #             print("left side",node.left.value)
+        #             next_node(node.left)
+        #         if node.right:
+        #             print("right side", node.right.value)
+        #             next_node(node.right)
+        # next_node(self.root)
+        # return max_element
+        
+
+
+class BST(BinaryTree):
+
+    def insert_node(self, node, value):
+        if value > node.value:
+            if not node.right:
+                node.right = Node(value)
+                return
+            self.insert_node(node.right, value)
         else:
-            self._add(value, self.root)
-    def _add(self, value, current_node):
-        if value < current_node.value:
-            if current_node.left == None:
-                current_node.left = TNode(value)
-            else:
-                self._add(value, current_node.left)
-        elif value > current_node.value:
-            if current_node.right == None:
-                current_node.right = TNode(value)
-            else:
-                self._add(value, current_node.right)
+            if not node.left:
+                node.left = Node(value)
+                return
+            self.insert_node(node.left, value)
+        
+        
+    def insert(self, value):
+        new_node = Node(value)
+        if not self.root:
+            self.root = new_node
         else:
-            print("Value is already in the binary search tree")
+            self.insert_node(self.root, value)
 
-    def contains(self, value):
-        """
-        A method that checks whether or not the value is in the tree at least once.
-            Argument: value
-            Return: boolean
-        """
-        if self.root:
-            is_found = self._contains(value, self.root)
-            if is_found:
-                return True
+
+    def contains_node(self, node, value):
+
+        if node == None:
             return False
-        else:
-            return None
-
-    def _contains(self, value, current_node):
-        if value > current_node.value and value < current_node.right.value:
-            return self._contains(value, current_node.right)
-        elif value < current_node.value and current_node.left.value:
-            return self._contains(value, current_node.left)
-        elif value == current_node.value:
+        
+        if value == node.value:
             return True
 
+        if value > node.value:
+            return self.contains_node(node.right, value)
+        else:
+            return self.contains_node(node.left, value)
+        
+    def contains(self, value):
+        if not self.root:
+            return None
+        return self.contains_node(self.root, value)
+
+
+
+    
+      
 if __name__ == "__main__":
-    # Nodes
-    node1 = TNode(1)
-    node2 = TNode(2)
-    node3 = TNode(3)
-    node4 = TNode(4)
-    node5 = TNode(5)
-    node6 = TNode(6)
-    node7 = TNode(7)
-    node8 = TNode(8)
+  tree = BinaryTree(Node(4))
+  tree.root.left = Node(2)
+  tree.root.right = Node(55)
+  tree.root.right.right = Node(6)
+  tree.root.left.right = Node(30)
+  tree.root.left.left = Node(1)
+  tree.root.right.left = Node(11)
+  print(tree.max_element())
 
-    # Binary Tree
-    tree = BinaryTree()
-    tree.root = node1
-    tree.root.left = node2
-    tree.root.right = node3
-    tree.root.left.left = node4
-    tree.root.left.right = node5
-    tree.root.left.right = node5
-    tree.root.right.left = node6
-    tree.root.right.right = node7
-    tree.root.right.right.right = node8
+#     4
+#  2     55
+# 1 30 11  6
 
-    print(tree.traversal_type("preorder"))
-    print(tree.traversal_type("inorder"))
-    print(tree.traversal_type("postorder"))
+# if node.left: 
+#   walk(node.left)
+# print(node.value)  
+# if node.right:
+#   walk(node.right)
+#   
+#
+# 1, 2,3,4, 4.5,5,6
+# Add node(root) to the queue
+# print
+# Add its children left then right to a queue
+  
+  # print(tree)
+  # print(tree.root.left.value)
+  # print(tree.root.right.value)
 
-    # Binary Search Tree
+  # tree.pre_order_traversal()
+  # print()
+  # tree.in_order_traversal()
+  # print()
+  # tree.post_order_traversal()
+  # print()
+  # tree.descending_traversal()
+  # right , root , left 
+  # tree.bfs_traversal()
 
-    binary_search_tree = BinarySearchTree()
-    binary_search_tree.add(4)
-    binary_search_tree.add(2)
-    binary_search_tree.add(8)
-    binary_search_tree.add(5)
-    binary_search_tree.add(10)
+#   binary_search_tree = BST()
+#   binary_search_tree.insert(100)
+#   binary_search_tree.insert(102)
+#   binary_search_tree.insert(104)
+#   binary_search_tree.insert(101)
+#   binary_search_tree.insert(150)
+#   binary_search_tree.insert(50)
 
-    # print(binary_search_tree.contains(20))
-    # print(binary_search_tree.contains(4))
-    print(binary_search_tree.contains(11))
+#    100 
+# 50     102
+#     101    104
+#               150
+  
+  # binary_search_tree.insert("10")
+  # binary_search_tree.in_order_traversal()  
+  # print(binary_search_tree.root.value) # 100
+  # print(binary_search_tree.root.left.value) # 50
+  # print(binary_search_tree.root.right.value) # 102
+  # print(binary_search_tree.root.right.left.value) # 101
+  # print(binary_search_tree.root.right.right.value) # 104
+  # print(binary_search_tree.root.right.right.right.value) # 150
 
-
-#      1
-#    /   \
-#   2     3
-#  / \   / \
-# 4   5  6  7
-#            \ 
-#             8
-
+#   print(binary_search_tree.contains(104))
 
 

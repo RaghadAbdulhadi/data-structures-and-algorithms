@@ -36,8 +36,17 @@ def test_breadth_first():
     expected = [4, 1, 12, 0, 2, 8, 16]
     assert actual == expected
 
+def test_only_root_breadth_first():
+    tree = BinaryTree(Node(4))
+    actual = breadth_first(tree)
+    expected = [4]
+    assert actual == expected
 
-
+def test_no_nodes_breadth_first():
+    tree = BinaryTree()
+    actual = breadth_first(tree)
+    expected = "Tree is empty"
+    assert actual == expected
 
 class Queue:
     """

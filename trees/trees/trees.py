@@ -156,6 +156,8 @@ def breadth_first(tree):
     str_tree = []
     breadth_queue = Queue()
     breadth_queue.enqueue(tree.root)
+    if tree.root == None:
+        return "Tree is empty"
 
     while not breadth_queue.is_empty():
         node = breadth_queue.dequeue()

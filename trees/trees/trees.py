@@ -1,4 +1,4 @@
-from queue import Queue
+from trees.queue import Queue
 
 class Node:
     def __init__(self, value, left = None,right=None):
@@ -178,10 +178,10 @@ if __name__ == "__main__":
     tree.root.left.left = Node(0)
     tree.root.right.left = Node(8)
     print(breadth_first(tree))
-    # print(tree.root.right.value)
-    # print("Final Max Element:", tree.max_element())
-    # tree.in_order_traversal()
-    # tree.delete(12)
+    print(tree.root.right.value)
+    print("Final Max Element:", tree.max_element())
+    tree.in_order_traversal()
+    tree.delete(12)
 #       4
 #   1      12
 # 0   2  8    16

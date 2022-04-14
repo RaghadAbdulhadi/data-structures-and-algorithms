@@ -1,3 +1,5 @@
+from queue import Queue
+
 class Node:
     def __init__(self, value, left = None,right=None):
         self.value = value
@@ -26,7 +28,7 @@ class BinaryTree:
         def walk(node):
             if node.right:
                 walk(node.right)
-            print(node.value, end=" ") # 1,2,3, 4, 4.5, 5 , 6
+            print(node.value, end=" ")
             if node.left:
                 walk(node.left)
 
@@ -69,10 +71,7 @@ class BinaryTree:
         #     return max(max(left_node, right_node), node.value)
         # return find_max(self.root)    
 
-        #     4
-        #  2     55
-        # 1 30 11  6
-            ## Approach 1 ##
+            ## Approach 2 ##
     def max_element(self):
         """
         A method that finds the maximum element stored in the tree and returns its value
@@ -96,6 +95,9 @@ class BinaryTree:
                     next_node(node.right)
         next_node(self.root)
         return max_element
+
+
+
         
 
 
@@ -140,23 +142,64 @@ class BST(BinaryTree):
             return None
         return self.contains_node(self.root, value)
 
+    def delete(self, value):
+        pass
 
 
+
+def breadth_first(tree):
+    """
+    A function that iterates through the tree by going through each level of the tree node-by-node using a queue.
+        Arguments: tree
+        Return: list of all values in the tree, in the order they were encountered
+    """
+    str_tree = []
+    breadth_queue = Queue()
+    breadth_queue.enqueue(tree.root)
+
+    while not breadth_queue.is_empty():
+        node = breadth_queue.dequeue()
+        if node:
+            str_tree.append(node.value)
+        if node.left:
+            breadth_queue.enqueue(node.left)
+        if node.right:
+            breadth_queue.enqueue(node.right)
+    return str_tree
     
       
 if __name__ == "__main__":
-  tree = BinaryTree(Node(4))
-  tree.root.left = Node(2)
-  tree.root.right = Node(55)
-  tree.root.right.right = Node(6)
-  tree.root.left.right = Node(30)
-  tree.root.left.left = Node(1)
-  tree.root.right.left = Node(111)
-  print("Final Max Element:", tree.max_element())
+    from queue import Queue
+    tree = BinaryTree(Node(4))
+    tree.root.left = Node(1)
+    tree.root.right = Node(12)
+    tree.root.right.right = Node(16)
+    tree.root.left.right = Node(2)
+    tree.root.left.left = Node(0)
+    tree.root.right.left = Node(8)
+    print(breadth_first(tree))
+    # print(tree.root.right.value)
+    # print("Final Max Element:", tree.max_element())
+    # tree.in_order_traversal()
+    # tree.delete(12)
+#       4
+#   1      12
+# 0   2  8    16
 
-#     4
-#  2     55
-# 1 30 11  6
+# def find_node(node, value):
+#     if node == None:
+#         return 
+
+# def delete(self, value):
+#     if node 
+        
+    
+
+
+# 12 => 8 will be in place of 12
+# 1 => 2 will be in place of 1
+# 4 => 2 will be in place of 4
+# if leaf node => delete it 
 
 # if node.left: 
 #   walk(node.left)

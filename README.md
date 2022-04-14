@@ -18,6 +18,9 @@ Code Challenges
 | stack-queue-brackets | [Challenge13](./stack-and-queue/Challenge13.md) |
 | trees | [Challenge15](./trees/Challenge15.md) |
 | tree-max | [Challenge16](./trees/Challenge16.md) |
+| tree-breadth-first | [Challenge17](./trees/Challenge17.md) |
+
+
 
 
 

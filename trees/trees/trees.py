@@ -1,4 +1,4 @@
-from trees.queue import Queue
+# from trees.queue import Queue
 
 class Node:
     """
@@ -226,10 +226,6 @@ def tree_fizz_buzz(k_ary_tree):
     def walk(node):
         if fizz_tree.root == None:
             raise MyException("Binary Tree is empty")
-        
-        # if type(node.value) == str:
-        #     new_node = int(node.value)
-        #     walk(new_node)
 
         if int(node.value) % 5 == 0 and int(node.value) % 3 == 0:
             # nodes_list.append("FizzBuzz")

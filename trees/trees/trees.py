@@ -92,6 +92,7 @@ class BinaryTree:
             print(node.value, end=" ")
         walk(self.root) 
     
+    # Max Element Challenge
     ## Max Element Approach 1 ##
     def max_element_one(self):
         """
@@ -180,7 +181,7 @@ class BST(BinaryTree):
         pass
 
 
-
+# Breadth First Challenge
 def breadth_first(tree):
     """
     A function that iterates through the tree by going through each level of the tree node-by-node using a queue.
@@ -204,6 +205,7 @@ def breadth_first(tree):
     return str_tree
 
 
+# FizzBuzz Challenge
 class MyException(Exception):
     pass
 

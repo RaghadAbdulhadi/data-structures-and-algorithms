@@ -1,6 +1,8 @@
 import unittest
 from trees.trees import Node, BinaryTree, breadth_first, tree_fizz_buzz, MyException
 
+# Tests for the previous Challenges in the test_trees#1 file
+
 # Max Element Tests
 def test_max_element():
     tree = BinaryTree(Node(4))

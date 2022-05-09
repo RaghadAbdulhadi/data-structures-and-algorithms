@@ -1,5 +1,7 @@
-from trees.trees import Node, BinaryTree, breadth_first
-from trees.queue import Queue
+import unittest
+from trees.trees import Node, BinaryTree, breadth_first, tree_fizz_buzz, MyException
+
+# Max Element Tests
 def test_max_element():
     tree = BinaryTree(Node(4))
     tree.root.left = Node(2)
@@ -24,6 +26,7 @@ def test_max_element_at_end():
     expected = 1001
     assert actual == expected
 
+# Breadth First Tests
 def test_breadth_first():
     tree = BinaryTree(Node(4))
     tree.root.left = Node(1)
@@ -48,81 +51,52 @@ def test_no_nodes_breadth_first():
     expected = "Tree is empty"
     assert actual == expected
 
-class Queue:
-    """
-    A class that instantiate, enqueue, dequeue, peek, and check if queue is empty
-    """
-    def __init__(self):
-        self.front = None
-        self.rear = None
+# FizzBuzz Tests
+def test_correctly_replaced():
+    tree = BinaryTree(Node(25))
+    tree.root.left = Node(1)
+    tree.root.right = Node("1")
+    tree.root.right.right = Node(15)
+    tree.root.left.right = Node(5)
+    tree.root.left.left = Node(3)
+    tree.root.right.left = Node(8)
+    expected = len(tree_fizz_buzz(tree))
+    actual = len(tree.pre_order_traversal())
+    assert actual == expected
 
-    def enqueue(self,value):
-        """
-        A function that adds the node from the rear of the queue
-        Arguments: valueb
-        Returns: The queue with the new node added
-        """
-        node = Node(value)
-        if not self.front:
-            self.rear = node
-            self.front = node
-        else:
-            self.rear.next = node
-            self.rear = node
+def test_fizz():
+    tree = BinaryTree(Node(9))
+    actual = tree_fizz_buzz(tree)[0]
+    expected = "Fizz"
+    assert actual == expected
 
-    def dequeue(self):
-        """
-        A function that removes the node from the front of the queue
-        Arguments: none
-        Returns: the value from node from the front of the queue
-        """
-        if self.front == None:
-            return "Queue is empty"
-        else:
-            temp = self.front
-            self.front = self.front.next
-            temp.next = None
-            return temp.value
+def test_buzz():
+    tree = BinaryTree(Node(25))
+    actual = tree_fizz_buzz(tree)[0]
+    expected = "Buzz"
+    assert actual == expected
 
-    def peek(self):
-        """
-        A function that takes no arguments and returns the front value
-        Arguments: none
-        Returns: Value of the node located at the front of the queue
-        """
-        if self.front == None:
-            return "Queue is empty"
-        return self.front.value
+def test_fizzbuzz():
+    tree = BinaryTree(Node(15))
+    actual = tree_fizz_buzz(tree)[0]
+    expected = "FizzBuzz"
+    assert actual == expected
 
-    def is_empty(self):
-        """
-        A function that takes no arguments and returns a boolean
-        Arguments: none
-        Returns:  Boolean indicating whether or not the queue is empty
-        """
-        if self.front is None:
-            return True
-        return False
+def test_string_number():
+    tree = BinaryTree(Node("25"))
+    actual = tree_fizz_buzz(tree)[0]
+    expected = "Buzz"
+    assert actual == expected
 
-    def length(self):
-        count = 0
-        current = self.front
-        while current:
-            count += 1
-            current = current.next
-        return count
+def test_retruns_string_num():
+    tree = BinaryTree(Node(1))
+    actual = tree_fizz_buzz(tree)[0]
+    expected = "1"
+    assert actual == expected
 
-    def to_string(self):
-            queue_str = ""
-            if self.front == None:
-                queue_str = "Stack is empty"
-            else:
-                current = self.front
-                while current:
-                    queue_str += "{ " + str(current.value) + " }" + " -> "
-                    current = current.next
-                queue_str += "None"
-            return queue_str
-            
 
-    
+class EmptyTree(unittest.TestCase):
+
+    def test_empty_tree(self):
+        tree = BinaryTree()
+        self.assertRaises(MyException, tree_fizz_buzz, tree)

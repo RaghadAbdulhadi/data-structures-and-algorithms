@@ -279,40 +279,40 @@ def tree_fizz_buzz(k_ary_tree):
     walk(fizz_tree.root)
     return fizz_tree.pre_order_traversal()
 
-# def check_files(folder_one, folder_two):
-#     sum_files_folder_one = 0
-#     sum_files_folder_two = 0
+def check_files(folder_one, folder_two):
+    sum_files_folder_one = 0
+    sum_files_folder_two = 0
 
-#     if folder_one.root.value != None and folder_two.root.value != None:
-#         def walk_one(node):
-#             nonlocal sum_files_folder_one
-#             if node.left:
-#                 if (node.left.value).find(".") != -1:
-#                     sum_files_folder_one += 1
-#                 walk_one(node.left)
-#             if node.right:
-#                 if (node.right.value).find(".") != - 1:
-#                     sum_files_folder_one += 1
-#                 walk_one(node.right)
-#         walk_one(folder_one.root)
-#         print(sum_files_folder_one)
-#         def walk_two(node):
-#             nonlocal sum_files_folder_two
-#             if node.left:
-#                 if (node.left.value).find(".") != -1:
-#                     sum_files_folder_two += 1
-#                 walk_two(node.left)
-#             if node.right:
-#                 if (node.right.value).find(".") != -1:
-#                     sum_files_folder_two += 1
-#                 walk_two(node.right)
-#         walk_two(folder_two.root)
-#         print(sum_files_folder_two)
+    if folder_one.root.value != None and folder_two.root.value != None:
+        def walk_one(node):
+            nonlocal sum_files_folder_one
+            if node.left:
+                if (node.left.value).find(".") != -1:
+                    sum_files_folder_one += 1
+                walk_one(node.left)
+            if node.right:
+                if (node.right.value).find(".") != - 1:
+                    sum_files_folder_one += 1
+                walk_one(node.right)
+        walk_one(folder_one.root)
+        print(sum_files_folder_one)
+        def walk_two(node):
+            nonlocal sum_files_folder_two
+            if node.left:
+                if (node.left.value).find(".") != -1:
+                    sum_files_folder_two += 1
+                walk_two(node.left)
+            if node.right:
+                if (node.right.value).find(".") != -1:
+                    sum_files_folder_two += 1
+                walk_two(node.right)
+        walk_two(folder_two.root)
+        print(sum_files_folder_two)
 
-#         if sum_files_folder_two != sum_files_folder_one:
-#             return False
-#         return True
-#     return False
+        if sum_files_folder_two != sum_files_folder_one:
+            return False
+        return True
+    return False
 
 def check_files(folder_one, folder_two):
     sum_files_folder_one = 0

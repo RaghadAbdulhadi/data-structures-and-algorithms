@@ -1,5 +1,8 @@
 # from trees.queue import Queue
 
+import os
+
+
 class Node:
     """
     A class that represents individual nodes in a tree
@@ -137,20 +140,26 @@ class BinaryTree:
 
 
 class BST(BinaryTree):
+    """
+    A binary search tree is a type of tree in which nodes are organized in a manner where all values that are smaller than the root are placed to the left, and values that are greater than the root are placed to the right
+
+    """
 
     def insert_node(self, node, value):
+        # If the value is greater than the root then go the right side
         if value > node.value:
             if not node.right:
                 node.right = Node(value)
                 return
             self.insert_node(node.right, value)
         else:
+        # If the value is smaller than the root then go the left side
             if not node.left:
                 node.left = Node(value)
                 return
             self.insert_node(node.left, value)
-        
-        
+    
+
     def insert(self, value):
         new_node = Node(value)
         if not self.root:
@@ -159,14 +168,30 @@ class BST(BinaryTree):
             self.insert_node(self.root, value)
 
 
-    def contains_node(self, node, value):
+# Sum of odd values in a BinarySearchTree
+    def check_odd_nodes(self):
+        sum_node = 0
+        if self.root.value % 2 != 0:
+            sum_node += self.root.value
+        def walk(node):
+            nonlocal sum_node
+            if node.left:
+                if node.left.value % 2 != 0:
+                    sum_node += node.left.value
+                walk(node.left)
+            if node.right:
+                if node.right.value % 2 != 0:
+                    sum_node += node.right.value
+                walk(node.right)
+        walk(self.root) 
+        return sum_node
 
+
+    def contains_node(self, node, value):
         if node == None:
             return False
-        
         if value == node.value:
             return True
-
         if value > node.value:
             return self.contains_node(node.right, value)
         else:
@@ -253,22 +278,46 @@ def tree_fizz_buzz(k_ary_tree):
 
     walk(fizz_tree.root)
     return fizz_tree.pre_order_traversal()
-    
+
+
   
 if __name__ == "__main__":
     from queue import Queue
-    tree = BinaryTree(Node(25))
-    tree.root.left = Node(1)
-    tree.root.right = Node("1")
-    tree.root.right.right = Node(15)
-    tree.root.left.right = Node(5)
-    tree.root.left.left = Node(3)
-    tree.root.right.left = Node(8)
+    folder_one = BinaryTree(Node("python"))
+    folder_one.root.left = Node("/home/raghad/Code Challenges/data-structures-and-algorithms/stack_and_queue/")
+    folder_one.root.right = Node("/home/raghad/Code Challenges/data-structures-and-algorithms/stack_and_queue/stack_and_queue/pseudo_queue.py")
+    folder_one.root.left.left = Node("pythontwo.py")
+    folder_one.root.left.right = Node("pythonthree.py")
+
+    folder_two = BinaryTree(Node("python"))
+    folder_two.root.left = Node("pythontwo.java")
+    folder_two.root.right = Node("pythonthree")
+    folder_two.root.left.left = Node("/home/raghad/Code Challenges/data-structures-and-algorithms/stack_and_queue/stack_and_queue/pseudo_queue.py")
+    folder_two.root.left.right = Node("pythonthree")
+    # print(check_files(folder_two,folder_one))
+
+    # binary_search_tree = BST()
+    # binary_search_tree.insert(3)
+    # binary_search_tree.insert(5)
+    # binary_search_tree.insert(7)
+    # binary_search_tree.insert(2)
+    # binary_search_tree.insert(15)
+    # binary_search_tree.insert(5)
+    # print(binary_search_tree.in_order_traversal())
+    # print(binary_search_tree.check_odd_nodes())
+    # print(binary_search_tree.sum_odd_nums())
+    # tree = BinaryTree(Node(25))
+    # tree.root.left = Node(1)
+    # tree.root.right = Node("1")
+    # tree.root.right.right = Node(15)
+    # tree.root.left.right = Node(5)
+    # tree.root.left.left = Node(3)
+    # tree.root.right.left = Node(8)
     # print(breadth_first(tree))
     # print(tree.root.right.value)
     # print("Final Max Element:", tree.max_element())
     # print(tree.pre_order_traversal())
-    print(tree_fizz_buzz(tree))
+    # print(tree_fizz_buzz(tree))
 #       4
 #   1      12
 # 0   2  8    16
@@ -314,13 +363,6 @@ if __name__ == "__main__":
 # right , root , left 
 # tree.bfs_traversal()
 
-#   binary_search_tree = BST()
-#   binary_search_tree.insert(100)
-#   binary_search_tree.insert(102)
-#   binary_search_tree.insert(104)
-#   binary_search_tree.insert(101)
-#   binary_search_tree.insert(150)
-#   binary_search_tree.insert(50)
 
 #    100 
 # 50     102

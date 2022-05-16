@@ -19,20 +19,5 @@ Code Challenges
 | trees | [Challenge15](./trees/Challenge15.md) |
 | tree-max | [Challenge16](./trees/Challenge16.md) |
 | tree-breadth-first | [Challenge17](./trees/Challenge17.md) |
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+| tree-fizz-buzz | [Challenge18](./trees/Challenge18.md) |
+| sum_odd_nums&check_files_direc-tree | [Challenge19](./trees/Challenge19.md) |

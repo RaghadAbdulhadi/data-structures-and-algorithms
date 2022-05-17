@@ -15,11 +15,11 @@ def insertion_sort(lst):
 
     for index in range(1, len(lst)):
         current_index = index - 1
-        current = lst[index]
-        while current_index >= 0 and current < lst[current_index]:
+        current_value = lst[index]
+        while current_index >= 0 and current_value < lst[current_index]:
             lst[current_index + 1] = lst[current_index]
             current_index = current_index - 1
-        lst[current_index + 1] = current
+        lst[current_index + 1] = current_value
     
     return lst
 

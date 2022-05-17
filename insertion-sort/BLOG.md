@@ -17,7 +17,11 @@ Worst Case: O(n^2)
 ### Space Complexity
 O(1)
 ## Algorithm
-- 
+- A function that takes in an list of numbers and returns them in a sorted order
+- Check if the list is empty -> raise exception
+- Check if the input is an list -> raise exception
+- Loop over the elements of the list by index
+    - Assign the pr
 ## Pseudo Code
     InsertionSort(int[] arr)
         FOR i = 1 to arr.length

@@ -14,18 +14,18 @@ def insertion_sort(lst):
         raise MyException("List is empty, the input should be a list of numbers")
 
     for index in range(1, len(lst)):
-        previous_index = index - 1
+        current_index = index - 1
         current = lst[index]
-        while previous_index >= 0 and current < lst[previous_index]:
-            lst[previous_index + 1] = lst[previous_index]
-            previous_index = previous_index - 1
-        lst[previous_index + 1] = current
+        while current_index >= 0 and current < lst[current_index]:
+            lst[current_index + 1] = lst[current_index]
+            current_index = current_index - 1
+        lst[current_index + 1] = current
     
     return lst
 
 
 if __name__ == "__main__":
-    
+
     lst = [5,12,7,5,5,7]
     lst_1 = [20,18,12,8,5,-2]
     lst_2 = [2,3,5,7,13,11]

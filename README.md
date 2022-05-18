@@ -21,5 +21,5 @@
 | tree-breadth-first | [Challenge17](./trees/Challenge17.md) |
 | tree-fizz-buzz | [Challenge18](./trees/Challenge18.md) |
 | sum_odd_nums&check_files_direc-tree | [Challenge19](./trees/Challenge19.md) |
-| insertion-sort | [Challenge20](./trees/Challenge20.md) |
+| insertion-sort | [Challenge20](./insertion-sort/BLOG.md) |
 

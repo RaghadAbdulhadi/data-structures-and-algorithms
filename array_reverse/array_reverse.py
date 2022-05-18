@@ -1,9 +1,7 @@
 def reverse_array(arr):
     """
     Function that reverse the elements of a list
-
     Input: List 
-
     Output: Returns list of reversed elements
 
     """

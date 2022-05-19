@@ -128,11 +128,85 @@ def merge(left_sublist, right_sublist, lst):
         j = j + 1
         k = k + 1
 ```
-## Trace and Test
+## Visualization
 
     [1,4,8,16]
 
 **Step1:**
+
+Divide the list in to two subparts
+
+    [8,1,4,16] -> [8,8] [4,16]
+
+**Step2:**
+
+Divide the two subparts until the lists will contain one element
+
+    [8,1] -> [8] [1]
+    [4,16] -> [4] [16]
+
+**Step3:**
+
+Start merging from bottom to top, left to right
+
+Starting by the left part 
+
+    [8] [1]
+
+8 is larger than 1 -> in list at the level above the [8] and [1] reassign 8 to be 1 and 1 to be 8
+
+    [1,8]
+
+**Step4:**
+
+Start merging from bottom to top, left to right
+
+Moving to the right part 
+
+    [4] [16]
+
+16 is larger than 4 -> in list at the level above the 4 will be reassigned to 4 and 16 to 16
+
+    [4,16]
+
+**Step5:**
+
+Moving to the level that we merged the lists with single elemnts in
+
+    [1,8] [4,16]
+
+Start merging the two sublists and reassiging the elements in the top-level list
+
+Start by comparing the element from the left with the element from the right
+
+1 < 4 -> Assign the first element in the orignal list to be 1
+
+    [1, .....]
+
+**Step6:**
+
+Next compare the second element in the left sublist with the first element in the right sublist
+
+8 > 4 -> Assign the second element in the original list to be 4
+
+    [1,4 .....]
+
+**Step7**
+
+Next compare the second element in the left sublist with the second element in the right sublist
+
+8 < 16 -> Assign the third element in the original list to be 8
+
+    [1,4,8 .....]
+
+**Step8**
+
+Since the left sublist is now empty, assign the last element in the right sublist to be the forth element in the original list
+
+    [1,4,8,16]
+
+
+
 
 
 ## Whiteboard Process

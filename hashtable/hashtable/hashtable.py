@@ -7,7 +7,7 @@ class Hashtable():
 
     def hash(self, key):
         """
-        A function that takes in a key and returns the index of the key in the collection of that key
+        A method that takes in a key and returns the index of the key in the collection of that key
             Arguments: key
             Returns: Index in the collection for that key
         """
@@ -19,14 +19,14 @@ class Hashtable():
 
         return hashed_key
 
-    # def set(self, key, value):
-    def __setitem__(self, key, value):
+    def set(self, key, value):
+    # def __setitem__(self, key, value):
         """
-        A function that takes in a key and a value, it hashes the key, and sets the key and value pair in the table, handles collisions as needed.
+        A method that takes in a key and a value, it hashes the key, and sets the key and value pair in the table, handles collisions as needed.
             Arguments: key, value
             Returns: Nothing
         """
-        # get the hashed key from the hash function
+        # get the hashed key from the hash method
         hashed_key = self.hash(key)
         # check if the bucket is empty at the hashed_key index, add the key/value pair
         if not self.table[hashed_key]:
@@ -35,10 +35,10 @@ class Hashtable():
         else:
             self.table[hashed_key].append([key, value])
 
-    # def get(self, key):
-    def __getitem__(self, key):
+    def get(self, key):
+    # def __getitem__(self, key):
         """
-        A function that returns the value associated with a specific key that is passed to the function as an argument.
+        A method that returns the value associated with a specific key that is passed to the method as an argument.
             Arguments: key
             Returns: Value associated with that key in the table
         """
@@ -50,7 +50,7 @@ class Hashtable():
 
     def __delitem__(self, key):
         """                
-        A function that deleted an key and value from the table
+        A method that deleted an key and value from the table
             Arguments: key
             Returns: Nothing
         """
@@ -62,7 +62,7 @@ class Hashtable():
 
     def contains(self, key):
         """
-        A function that takes in a key and checks if it is in the table or not.
+        A method that takes in a key and checks if it is in the table or not.
             Arguments: key
             Returns: Boolean, indicating if the key exists in the table already.
         """
@@ -73,7 +73,7 @@ class Hashtable():
         
     def keys(self):
         """
-        A function that returns a collection of keys
+        A method that returns a collection of keys
             Arguments: None
             Returns: Collection of keys
         """
@@ -89,28 +89,28 @@ class Hashtable():
 
 
 if __name__ == "__main__":
-    t = Hashtable()
+    t = Hashtable(size=20)
     # print(t.hash('march 6'))
 
-    # # get and set functions
-    # t.set('march 6', 300)
-    # t.set('april 6', 300)
-    # t.set('march 6', 300)
-    # t.set('march 4', 600)
-    # t.set('march 5', 1000)
+    # get and set methods
+    t.set('march 6', 300)
+    t.set('april 6', 300)
+    t.set('march 6', 300)
+    t.set('march 4', 600)
+    t.set('march 5', 1000)
     # print(t.get('march 5'))
-    # print(t.table)
+    print(t.table)
 
     # # __setitem__ and __getitem__
-    t['march 5'] = 130
-    t['march 6'] = 800
-    t['march 6'] = 500
-    t['march 7'] = 1000
-    t['march 7'] = 1000
+    # t['march 5'] = 130
+    # t['march 6'] = 800
+    # t['march 6'] = 500
+    # t['march 7'] = 1000
+    # t['march 7'] = 1000
     # del t['march 5']
-    print(t.contains('march 5'))
-    print(t.contains('march 6'))
-    print(t.keys())
 
-    # print(t['march 5'])
+    # contains and keys collection
+    # print(t.contains('march 5'))
+    # print(t.contains('march 6'))
+    print(t.keys())
     # print(t.table)

@@ -26,8 +26,26 @@ Merge sort has space complexity of O(n) because to sort the unsorted list, the r
 ## Visualization
 
 ## Algorithm
-1. Divide the list into two equal halves 
+- Create a merge_sort function that is used to split the list into smaller sublists until the list reaches to have one element
+    - Check if the input is a list of numbers, if not raise an error (based on the error type)
+    - Since the function will recursively call itself until the list's length will be equal to 1, the base case for the function will be -> if the length of the list is equal to 1 or less
+    - Assign a mid_point variable to be the index of the mid element in the list
+    - Assign a left_sublist variable to be the left part of the list
+    - Assign a right_sublist variable to be the right part of the list
+    - Recursivly call the function for the left part of the list
+    - Recursivly call the function for the right part of the list
+    - Call the merge function 
+- Return the list sorted
+- Create a merge function that is used to merge all the sublists and adjust the elements in the original list based on the sorted sublists
+    - Assign three variable to be the indecies for the left, right and original lists
+    - Loop over the elements in both the left and right sublists when both the left and right sublists are not empty
+        - Compare the element from the left and the right sublists
+        - If the element in the left sublist is smaller than the element in the right sublist reassign the element in the original list to be the element in the left sublist
 
+        - Compare the element from the left and the right sublists
+        - If the element in the right sublist is smaller than the element in the left sublist reassign the element in the original list to be the element in the right sublist
+        - When one of the sublists are empty, exit the loop
+    - When one of the sublists are empty, fill out the rest of the elements in the original list
 ## Pseudo Code
     ALGORITHM Mergesort(arr)
         DECLARE n <-- arr.length
@@ -111,3 +129,11 @@ def merge(left_sublist, right_sublist, lst):
         k = k + 1
 ```
 ## Trace and Test
+
+    [1,4,8,16]
+
+**Step1:**
+
+
+## Whiteboard Process
+![Whiteboard Workflow](./merge_sort/images/MergeSortWB.PNG)

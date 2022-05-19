@@ -3,7 +3,7 @@ class MyException(Exception):
 
 def merge_sort(lst):
     """
-    A function that is used to split the list to smaller sublists intil the list reaches one element
+    A function that is used to split the list to smaller sublists until the list reaches to have one element
         Arguments: List
         Returns: sorted list
     """
@@ -44,7 +44,7 @@ def merge(left_sublist, right_sublist, lst):
     # index in the original list
     k = 0
 
-    # Loop over the elements in both the left and right sublists 
+    # Loop over the elements in both the left and right sublists when both the left and right sublists are not empty
     while i < len(left_sublist) and j < len(right_sublist):
         # Compare the element from the left and the right sublists
         # If the element in the left sublist is smaller than the element in the right sublist reassign the element in the original list to be the element in the left sublist
@@ -61,12 +61,13 @@ def merge(left_sublist, right_sublist, lst):
             j = j + 1
             k = k + 1
 
-    # 
+    # When one of the sublists are empty, fill out the rest of the elements in the original list
     while i < len(left_sublist):
         lst[k] = left_sublist[i]
         i = i + 1
         k = k + 1
-    # 
+
+    # When one of the sublists are empty, fill out the rest of the elements in the original list
     while j < len(right_sublist):
         lst[k] = right_sublist[j]
         j = j + 1

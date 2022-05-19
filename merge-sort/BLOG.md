@@ -22,9 +22,6 @@ Each broken down subpart of the initial list that’s sorted using the merge sor
 
 Merge sort has space complexity of O(n) because to sort the unsorted list, the recursive function will be splitting and creating subarrays but the sum of sizes of all the subarray will be n.
 
-
-## Visualization
-
 ## Algorithm
 - Create a merge_sort function that is used to split the list into smaller sublists until the list reaches to have one element
     - Check if the input is a list of numbers, if not raise an error (based on the error type)
@@ -204,10 +201,6 @@ Next compare the second element in the left sublist with the second element in t
 Since the left sublist is now empty, assign the last element in the right sublist to be the forth element in the original list
 
     [1,4,8,16]
-
-
-
-
 
 ## Whiteboard Process
 ![Whiteboard Workflow](./merge_sort/images/MergeSortWB.PNG)

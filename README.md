@@ -22,4 +22,8 @@
 | tree-fizz-buzz | [Challenge18](./trees/Challenge18.md) |
 | sum_odd_nums&check_files_direc-tree | [Challenge19](./trees/Challenge19.md) |
 | insertion-sort | [Challenge20](./insertion-sort/BLOG.md) |
+| merge-sort | [Challenge21](./merge-sort/BLOG.md) |
+| hashtable | [Challenge22](./hashtable/Challenge22.md) |
+
+
 

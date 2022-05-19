@@ -26,7 +26,7 @@ def test_reversly_sorted_list():
     expected = [-2, 5, 8, 12, 18, 20]
     assert actual == expected
 
-class EmptyTree(unittest.TestCase):
+class EmptyList(unittest.TestCase):
 
     def test_string_input(self):
         lst = "not a list"

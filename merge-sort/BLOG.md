@@ -202,5 +202,13 @@ Since the left sublist is now empty, assign the last element in the right sublis
 
     [1,4,8,16]
 
+
+## Running the code
+
+```python 
+if __name__ == "__main__":
+    lst = [16,8,4,1]
+    print(merge_sort(lst))
+```
 ## Whiteboard Process
 ![Whiteboard Workflow](./merge_sort/images/MergeSortWB.PNG)

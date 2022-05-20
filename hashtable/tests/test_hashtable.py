@@ -36,10 +36,6 @@ def test_collisions(hashtable):
     pass
 
 
-
-
-
-
 @pytest.fixture
 def hashtable():
     t = Hashtable(size=20)

@@ -86,7 +86,8 @@ class Hashtable():
                     keys_collection.append(self.table[idx][0][0])
                     keys_collection.append(self.table[idx][1][0])  
         return keys_collection
-
+def repeated_word(string):
+    pass
 
 if __name__ == "__main__":
     t = Hashtable(size=20)

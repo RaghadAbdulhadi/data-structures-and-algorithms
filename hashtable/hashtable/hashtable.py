@@ -86,22 +86,51 @@ class Hashtable():
                     keys_collection.append(self.table[idx][0][0])
                     keys_collection.append(self.table[idx][1][0])  
         return keys_collection
-def repeated_word(string):
-    pass
+
+    def repeated_word(self,string):
+        """
+        A function that finds the first word to occur more than once in a string
+            Arguments: string
+            Return: string
+        """
+        words_list = string.split()
+        values_list = []
+        rep = 0
+        for word in words_list:
+            values_list.append(word)
+            for value in values_list:
+                if value == word:
+                    rep += 1
+            self.set(word, rep)
+        print(self.table)
+        
+        # if self.table[0][1].count() > 0:
+        #     return self.table[0]        
+            
+
+
+            
+        
+
+
+
+
+
+
 
 if __name__ == "__main__":
-    t = Hashtable(size=20)
-    # print(t.hash('march 6'))
+    t = Hashtable()
+    # # print(t.hash('march 6'))
 
-    # get and set methods
-    t.set('march 6', 300)
-    t.set('april 6', 300)
-    t.set('march 6', 300)
-    t.set('march 4', 600)
-    t.set('march 5', 1000)
-    # print(t.get('march 5'))
-    print(t.table)
-
+    # # get and set methods
+    # t.set('march 6', 300)
+    # t.set('april 6', 300)
+    # t.set('march 6', 300)
+    # t.set('march 4', 600)
+    # t.set('march 5', 1000)
+    # # print(t.get('march 5'))
+    # print(t.table)
+    print(t.repeated_word("Once upon a time, there was a brave princess who..."))
     # # __setitem__ and __getitem__
     # t['march 5'] = 130
     # t['march 6'] = 800
@@ -113,5 +142,5 @@ if __name__ == "__main__":
     # contains and keys collection
     # print(t.contains('march 5'))
     # print(t.contains('march 6'))
-    print(t.keys())
+    # print(t.keys())
     # print(t.table)

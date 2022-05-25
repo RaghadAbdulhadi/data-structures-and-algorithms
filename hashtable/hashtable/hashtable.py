@@ -1,9 +1,8 @@
-
 import re
 
 class MyException(Exception):
     pass
-class Hashtable():
+class Hashtable:
     def __init__(self, size= 100):
         # initialize the size of the list
         self.size = size

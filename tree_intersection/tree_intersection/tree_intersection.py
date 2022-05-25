@@ -11,6 +11,8 @@ def tree_intersection(tree_one, tree_two):
         Arguments: two binary trees
         Returns: set of values found in both trees
     """
+    if not tree_one.root or not tree_two.root:
+        raise MyException("One of the trees or both is empty")
     hash_table = Hashtable()
     values_set = set()
     def walk(node, tree_num):
@@ -26,16 +28,18 @@ def tree_intersection(tree_one, tree_two):
             values_set.add(hash_table.table[hashed_key][1][0])
     walk(tree_one.root, 1)
     walk(tree_two.root, 2)
+    if len(values_set) == 0:
+        raise MyException("No common values")
     return values_set
 
 
 if __name__ == "__main__":
     # Tree One
-    tree_one = BinaryTree(Node(1))
+    tree_one = BinaryTree(Node(22))
     tree_one.root.left = Node(22)
     tree_one.root.left.left = Node(22)
-    tree_one.root.left.right = Node(44)
-    tree_one.root.left.left.left = Node(55)
+    tree_one.root.left.right = Node(22)
+    # tree_one.root.left.left.left = Node(55)
     # tree_one.root.left.left.right = Node(46)
     # tree_one.root.left.right.left = Node(17)
     # tree_one.root.left.right.right = Node(88)

@@ -1,5 +1,6 @@
+import unittest
 import pytest
-from hashtable.hashtable import Hashtable
+from hashtable.hashtable import Hashtable, repeated_word, MyException
 
 def test_hash():
     t = Hashtable()
@@ -32,9 +33,39 @@ def test_keys_collection(hashtable):
     expected = ['april 6', 'march 4', 'march 5', 'march 6', 'march 6']
     assert actual == expected
 
-def test_collisions(hashtable):
-    pass
+# Repeated words tests
+def test_repeated_words_paragraph():
+    string = "It was the best of times, it was the worst of times, it was the age of wisdom, it was the age of foolishness, it was the epoch of belief, it was the epoch of incredulity, it was the season of Light, it was the season of Darkness, it was the spring of hope, it was the winter of despair, we had everything before us, we had nothing before us, we were all going direct to Heaven, we were all going direct the other way – in short, the period was so far like the present period, that some of its noisiest authorities insisted on its being received, for good or for evil, in the superlative degree of comparison only..."
+    actual = repeated_word(string)
+    expected = "it"
+    assert actual == expected
 
+def test_repeated_words_phrase():
+    string = "It was a queer, sultry summer, the summer they electrocuted the Rosenbergs, and I didn’t know what I was doing in New York..."
+    actual = repeated_word(string)
+    expected = "summer"
+    assert actual == expected
+
+def test_repeated_words_lower_upper_case():
+    string = "Jordan, jordan"
+    actual = repeated_word(string)
+    expected = "jordan"
+    assert actual == expected
+
+def test_repeated_words_no_repeated_words():
+    string = "Jordan"
+    actual = repeated_word(string)
+    expected = "No repeated words detected"
+    assert actual == expected
+
+class EmptyTree(unittest.TestCase):
+
+    def test_empty_string(self):
+        string = ""
+        self.assertRaises(MyException, repeated_word, string)
+    def test_empty_not_string(self):
+        string = 0
+        self.assertRaises(MyException, repeated_word, string)
 
 @pytest.fixture
 def hashtable():

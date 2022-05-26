@@ -3,7 +3,7 @@ import re
 class MyException(Exception):
     pass
 class Hashtable:
-    def __init__(self, size= 100):
+    def __init__(self, size= 1024):
         # initialize the size of the list
         self.size = size
         self.table = [None]*size
@@ -15,10 +15,10 @@ class Hashtable:
             Returns: Index in the collection for that key
         """
         sum_of_ascii = 0
-        for charc in key:
-            charc_ascii = ord(charc)
-            sum_of_ascii += charc_ascii
-        hashed_key = (sum_of_ascii) % self.size
+        for ch in key:
+            ch_ascii = ord(ch) #86
+            sum_of_ascii+=ch_ascii
+        hashed_key = (sum_of_ascii*19)%self.size
 
         return hashed_key
 

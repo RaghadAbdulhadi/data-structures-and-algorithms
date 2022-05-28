@@ -24,6 +24,10 @@
 | insertion-sort | [Challenge20](./insertion-sort/BLOG.md) |
 | merge-sort | [Challenge21](./merge-sort/BLOG.md) |
 | hashtable | [Challenge22](./hashtable/Challenge22.md) |
+| hashtable-test_repeated_words | [Challenge23](./hashtable/Challenge23.md) |
+| quick-sort | [Challenge25](.//quick-sort/BLOG.md) |
+
+
 
 
 

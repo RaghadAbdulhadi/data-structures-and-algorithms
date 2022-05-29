@@ -26,6 +26,8 @@
 | hashtable | [Challenge22](./hashtable/Challenge22.md) |
 | hashtable-test_repeated_words | [Challenge23](./hashtable/Challenge23.md) |
 | quick-sort | [Challenge25](.//quick-sort/BLOG.md) |
+| hashmap-left-join | [Challenge26](./hashtable/Challenge26.md) |
+
 
 
 

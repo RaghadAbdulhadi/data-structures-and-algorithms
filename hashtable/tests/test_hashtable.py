@@ -1,6 +1,7 @@
 import unittest
 import pytest
 from hashtable.hashtable import Hashtable, repeated_word, MyException
+from hashtable.hashmap_left_join import left_join, MyExceptionTwo
 
 def test_hash():
     t = Hashtable()
@@ -58,7 +59,18 @@ def test_repeated_words_no_repeated_words():
     expected = "No repeated words detected"
     assert actual == expected
 
-class EmptyTree(unittest.TestCase):
+# Hashmap Left Join Tests
+def test_left_join(hashtable_one, hashtable_two):
+    actual = left_join(hashtable_one, hashtable_two)
+    expected = [['fond', 'enamored', 'averse'], ['guide', 'usher', 'follow'], ['diligent', 'employed', 'idle'], ['wrath', 'anger', 'delight'], ['outfit', 'garb', None]]
+    assert actual == expected
+
+def test_empty_right_join(hashtable_one):
+    right_table = Hashtable()
+    actual = left_join(hashtable_one, right_table)
+    expected = [['fond', 'enamored', None], ['guide', 'usher', None], ['diligent', 'employed', None], ['wrath', 'anger', None], ['outfit', 'garb', None]]
+    assert actual == expected
+class EmptyTable(unittest.TestCase):
 
     def test_empty_string(self):
         string = ""
@@ -66,6 +78,19 @@ class EmptyTree(unittest.TestCase):
     def test_empty_not_string(self):
         string = 0
         self.assertRaises(MyException, repeated_word, string)
+
+# Hashmap Left Join Tests
+class EmptyLeftTable(unittest.TestCase):
+    def test_empty_left_table(self):
+        left_table = Hashtable()
+        right_table = Hashtable()
+        right_table.set("diligent", "idle")
+        right_table.set("fond", "averse")
+        right_table.set("guide", "follow")
+        right_table.set("flow", "jam")
+        right_table.set("wrath", "delight")
+        self.assertRaises(MyExceptionTwo, left_join, left_table, right_table)
+
 
 @pytest.fixture
 def hashtable():
@@ -76,3 +101,23 @@ def hashtable():
     t.set('march 4', 600)
     t.set('march 5', 1000)
     return t
+
+@pytest.fixture
+def hashtable_one():
+    left_table = Hashtable()
+    left_table.set("diligent", "employed")
+    left_table.set("fond", "enamored")
+    left_table.set("guide", "usher")
+    left_table.set("outfit", "garb")
+    left_table.set("wrath", "anger")
+    return left_table
+
+@pytest.fixture
+def hashtable_two():
+    right_table = Hashtable()
+    right_table.set("diligent", "idle")
+    right_table.set("fond", "averse")
+    right_table.set("guide", "follow")
+    right_table.set("flow", "jam")
+    right_table.set("wrath", "delight")
+    return right_table

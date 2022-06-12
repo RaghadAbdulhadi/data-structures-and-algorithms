@@ -1,5 +1,6 @@
 class MyException(Exception):
     pass
+
 class Node:
     def __init__(self, value=None):
         self.value = value
@@ -97,15 +98,16 @@ if __name__ == '__main__':
     f = graph.add_node('F')
     g = graph.add_node('G')
 
-    graph.add_edge(a,d)
-    graph.add_edge(a,c)
-    graph.add_edge(a,b)
-    graph.add_edge(b,c)
-    graph.add_edge(e,b)
-    graph.add_edge(c,f)
-    graph.add_edge(f,g)
-    graph.add_edge(f,e)
+    # graph.add_edge(a,d)
+    # graph.add_edge(a,c)
+    # graph.add_edge(a,b)
+    # graph.add_edge(b,c)
+    # graph.add_edge(e,b)
+    # graph.add_edge(c,f)
+    # graph.add_edge(f,g)
+    # graph.add_edge(f,e)
 
-    # print(graph)
+    print(graph)
     # print(graph.get_nodes())
-    print(graph.get_neighbors(a))
+    # print(graph.get_neighbors(a))
+    # print(graph.size())

@@ -1,4 +1,4 @@
-from graphs import __version__
+from graphs import Graph
 
 
 def test_add_nodes():
